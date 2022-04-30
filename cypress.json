@@ -1,0 +1,8 @@
+{
+    "baseUrl": "http://localhost:3000/",
+    "testFiles": "**/*.spec.ts",
+    "componentFolder": "src",
+    "component": {
+        "supportFile": "cypress/support/component.ts"
+    }
+}

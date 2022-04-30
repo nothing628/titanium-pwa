@@ -1,0 +1,38 @@
+{
+  "name": "go-review",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "cypress": "cypress",
+    "cypress-open": "cypress open",
+    "cypress-ct": "cypress open-ct"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "luxon": "^2.3.2",
+    "pinia": "^2.0.13",
+    "pinia-plugin-persist": "^1.0.0",
+    "vue": "^3.2.25",
+    "vue-router": "4"
+  },
+  "devDependencies": {
+    "@cypress/vite-dev-server": "^2.2.2",
+    "@cypress/vue": "^3.1.1",
+    "@types/lodash": "^4.14.181",
+    "@types/luxon": "^2.3.1",
+    "@types/node": "^17.0.24",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "autoprefixer": "^10.4.4",
+    "cypress": "^9.5.4",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.2",
+    "vite-plugin-pwa": "^0.11.13",
+    "vue-tsc": "^0.29.8",
+    "workbox-window": "^6.5.3"
+  }
+}
