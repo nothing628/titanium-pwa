@@ -1,53 +1,21 @@
-import { mount } from "@cypress/vue";
+import { mount } from "@vue/test-utils";
+import { it, describe, expect } from "vitest";
 import Button from "./button.vue";
 
-it("renders a Register button", () => {
-  mount(Button, {
-    slots: {
-      default: () => "Register",
-    },
-  });
-
-  cy.get("button").contains("Register");
+it("exists", () => {
+  expect(Button).toBeTruthy();
 });
 
-it("can click event", () => {
-  mount(Button, {
-    slots: {
-      default: () => "Click Me",
-    },
-  });
+it("can show correct slot", async () => {
+  const wrapper = mount(Button, { slots: { default: () => "Test button" } });
 
-  cy.contains("button", "Click Me")
-    .click()
-    .vue()
-    .then((wrapper) => {
-      expect(wrapper.emitted("click")).to.have.length(1);
-    });
+  expect(wrapper.text()).toBe("Test button");
 });
 
-it("should be disabled", () => {
-  mount(Button, {
-    props: {
-      disabled: true,
-    },
-    slots: {
-      default: () => "This should be disabled",
-    },
-  });
+it('can emit event click', async () => {
+  const wrapper = mount(Button, { slots: { default: () => "Test button" } });
 
-  cy.get("button").should("be.disabled");
-});
+  await wrapper.get('button').trigger('click')
 
-it("should be enabled", () => {
-  mount(Button, {
-    props: {
-      disabled: false,
-    },
-    slots: {
-      default: () => "This should be enabled",
-    },
-  });
-
-  cy.get("button").should("be.enabled");
-});
+  expect(wrapper.emitted('click')).toHaveLength(1)
+})
