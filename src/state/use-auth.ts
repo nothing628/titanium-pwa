@@ -1,5 +1,9 @@
 import { defineStore } from "pinia";
-import { login as apiLogin, getMe as apiGetMe } from "../helper/api/auth";
+import {
+  login as apiLogin,
+  logout as apiLogout,
+  getMe as apiGetMe,
+} from "../helper/api/auth";
 
 const useAuthState = defineStore("auth", {
   state: () => ({
@@ -24,12 +28,30 @@ const useAuthState = defineStore("auth", {
         }
       }
     },
-    async logout() {},
+    async logout() {
+      const accessToken = this.accessToken;
+      const result = await apiLogout({ token: accessToken });
+
+      if (result) {
+        this.id = "";
+        this.email = "";
+        this.accessToken = "";
+      }
+    },
   },
   getters: {
     isLoggedIn: (state) => {
       return Boolean(state.id);
     },
+  },
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        key: "titanium:auth",
+        storage: localStorage,
+      },
+    ],
   },
 });
 

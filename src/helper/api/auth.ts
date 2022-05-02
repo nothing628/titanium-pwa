@@ -11,6 +11,8 @@ type GetMeParam = {
   token: string;
 };
 
+type LogoutParam = GetMeParam;
+
 export async function login(param: LoginParam) {
   try {
     const { email, password } = param;
@@ -46,6 +48,22 @@ export async function getMe(param: GetMeParam) {
       id: get(responseJson, "user.id", ""),
       email: get(responseJson, "user.email", ""),
     };
+  } catch (err) {
+    //
+  }
+}
+
+export async function logout(param: LogoutParam) {
+  try {
+    const { token } = param;
+    const response = await ky.post(API_AUTH + "/logout", {
+      headers: {
+        authorization: `Bearer ` + token,
+      },
+    });
+    const responseJson = await response.json();
+
+    return get(responseJson, "success");
   } catch (err) {
     //
   }
