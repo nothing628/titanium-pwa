@@ -8,6 +8,7 @@ specifiers:
   '@vue/test-utils': ^2.0.0-rc.21
   autoprefixer: ^10.4.4
   jsdom: ^19.0.0
+  ky: ^0.30.0
   lodash: ^4.17.21
   luxon: ^2.3.2
   pinia: ^2.0.13
@@ -24,6 +25,7 @@ specifiers:
   workbox-window: ^6.5.3
 
 dependencies:
+  ky: 0.30.0
   lodash: 4.17.21
   luxon: 2.3.2
   pinia: 2.0.13_typescript@4.6.3+vue@3.2.33
@@ -2828,6 +2830,11 @@ packages:
       is-promise: 2.2.2
       promise: 7.3.1
     dev: true
+
+  /ky/0.30.0:
+    resolution: {integrity: sha512-X/u76z4JtDVq10u1JA5UQfatPxgPaVDMYTrgHyiTpGN2z4TMEJkIHsoSBBSg9SWZEIXTKsi9kHgiQ9o3Y/4yog==}
+    engines: {node: '>=12'}
+    dev: false
 
   /leven/3.1.0:
     resolution: {integrity: sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==}
