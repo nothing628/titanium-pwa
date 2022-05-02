@@ -11,14 +11,14 @@
     "isolatedModules": false,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "types": ["pinia-plugin-persist", "cypress"]
+    "types": ["pinia-plugin-persist"]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "cypress/**/*.ts"
+    // "cypress/**/*.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
