@@ -22,7 +22,11 @@ onMounted(() => {
     <div class="px-8 py-2">
         <div v-if="isLoggedIn" class="mb-2">
             <p>{{ email }}</p>
-            <button class="bg-cyan-500 text-white text-lg px-8 py-2 rounded-lg" @click="handleLogout">Logout</button>
+            <div class="flex">
+                <a href="/upload" class="block bg-cyan-500 text-white text-lg px-8 py-2 rounded-lg">Upload Manga</a>
+                <button class="block ml-2 bg-cyan-500 text-white text-lg px-8 py-2 rounded-lg"
+                    @click="handleLogout">Logout</button>
+            </div>
         </div>
         <div v-else class="mb-2">
             <a href="/login" class="bg-cyan-500 text-white text-lg px-8 py-2 rounded-lg">Login</a>
